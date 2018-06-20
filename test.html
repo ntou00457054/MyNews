@@ -1,0 +1,54 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>鼠標滑過 圖片震動效果</title>
+<STYLE>.shakeimage {
+ POSITION: relative
+}
+</STYLE>
+</head>
+<body>
+<SCRIPT language=JavaScript1.2>
+<!--
+var rector=3
+var stopit=0
+var a=1
+function init(which){
+stopit=0
+shake=which
+shake.style.left=0
+shake.style.top=0
+}
+function rattleimage(){
+if ((!document.all&&!document.getElementById)||stopit==1)
+return
+if (a==1){
+shake.style.top=parseInt(shake.style.top)+rector
+}
+else if (a==2){
+shake.style.left=parseInt(shake.style.left)+rector
+}
+else if (a==3){
+shake.style.top=parseInt(shake.style.top)-rector
+}
+else{
+shake.style.left=parseInt(shake.style.left)-rector
+}
+if (a<4)
+a++
+else
+a=1
+setTimeout("rattleimage()",50)
+}
+function stoprattle(which){
+stopit=1
+which.style.left=0
+which.style.top=0
+}
+//-->
+</SCRIPT>
+<img class="shakeimage" onMouseOver="init(this);rattleimage()" onMouseOut="stoprattle(this)" src="/images/csrcode.ico" border="0" style="cursor:pointer;"/>
+<img class="shakeimage" onmouseover="init(this);rattleimage()" onmouseout="stoprattle(this)" src="/images/changshi.ico"  border="0" style="cursor:pointer;"/>
+<img class="shakeimage" onmouseover="init(this);rattleimage()" onmouseout="stoprattle(this)" src="/images/links.ico" border="0" style="cursor:pointer;"/>
+鼠標滑過圖片預覽效果。
+</body>
+</html>
